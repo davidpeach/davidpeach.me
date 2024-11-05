@@ -1,0 +1,38 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8" />
+    <title>
+        $if(title)$
+            $title$
+        $else$
+            $uri$
+        $endif$
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=stylesheet href="/style.css" />
+</head>
+<body>
+    <!-- <header> -->
+    <!--     <p class="site-title"> -->
+    <!--         <a href="/">David Peach's Homepage</a> -->
+    <!--     </p> -->
+    <!-- </header> -->
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+    <h1>
+        $if(title)$
+            $title$
+        $else$
+            $uri$
+        $endif$
+    </h1>
+    $if(tags)$
+    <div>
+        $for(tags)$
+        <a href="/tags/$tags$/">$tags$</a>
+        $endfor$
+    </div>
+    $endif$
+    <div>$body$</div>
+</body>
