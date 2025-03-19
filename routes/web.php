@@ -3,10 +3,13 @@
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    $response = Http::get(env('WORDPRESS_API_URL') . 'posts');
+    $posts = $response->json();
+    return $posts;
 })->name('home');
 
 Route::view('dashboard', 'dashboard')
